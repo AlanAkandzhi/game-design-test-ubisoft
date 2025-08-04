@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ubisoft Game Design Test – Alan Akandzhi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: linear-gradient(to right, #0f0f0f, #1c1c1c);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    canvas#background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
+
+    .author-card {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #333;
+      color: #ffd369;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-top: 70px;
+      color: #ffd369;
+    }
+
+    #typewriter {
+      display: inline-block;
+      border-right: 2px solid #ffd369;
+      white-space: nowrap;
+      overflow: hidden;
+      font-size: 2.8rem;
+      animation: blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #ffd369; }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      z-index: 1;
+      position: relative;
+    }
+
+    .card {
+      background: #1e1e1e;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      width: 80%;
+      max-width: 800px;
+      cursor: pointer;
+      transition: all 0.4s ease-in-out;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 10px 30px rgba(255, 211, 105, 0.3);
+    }
+
+    .card.open {
+      background: rgba(255, 211, 105, 0.05);
+      box-shadow: 0 10px 25px rgba(255, 211, 105, 0.3);
+    }
+
+    .card-content {
+      display: none;
+      margin-top: 1rem;
+    }
+
+    .card.open .card-content {
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #aaa;
+      z-index: 1;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="background"></canvas>
+  <div class="author-card">By: Alan Akandzhi</div>
+  <h1><span id="typewriter"></span></h1>
+  <div class="container">
+    <div class="card" onclick="toggleCard(this)">
+  <h2>Part 1<br>Modify a Mechanic</h2>
+  <div class="card-content">
+    <p><strong>Mechanic:</strong> Hacking in Watch Dogs</p>
+    <p>In Watch Dogs, hacking makes the player feel smart, powerful, and in control. With just one tap, you can stop traffic, shut down cameras, distract guards, or steal money, all without being seen. It’s not about fighting with force. It’s about outthinking the system. You feel like a digital ghost, quietly bending the city to your will.</p>
+    <p>This mechanic gives players the feeling of using intelligence and technology to fight back against a bigger, more powerful world. You’re not loud or flashy, you’re clever, hidden, and always one step ahead.</p>
+    <p><strong>Feature Suggestion – CodeSight:</strong> To make hacking feel even more immersive and emotional, I’d add a feature called CodeSight. With CodeSight, players slowly unlock the ability to see the digital world layered over the real one:</p>
+    <ul>
+      <li>Phone data appears above people’s heads</li>
+      <li>Security systems glow through walls</li>
+      <li>Power lines and data flows pulse with energy</li>
+      <li>You start to notice patterns and weak points that others can’t</li>
+    </ul>
+    <p>As you level up, the world starts revealing itself, not through menus or popups, but directly in what you see and hear. You’re not just using tech anymore, you’re connected to it. CodeSight becomes a digital sixth sense, making you feel like you’re truly inside the system.</p>
+  </div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+  <h2>Part 2<br>Design From a Verb – Serve</h2>
+  <div class="card-content">
+    <p><strong>Game Concept – "The Apostle":</strong> You play as Vasil Levski, the real Bulgarian revolutionary, in a story-driven action game set during the time of Ottoman rule. The main idea of the game is built around the verb "Serve," but not by serving a king or government — you serve the people, the freedom movement, and the dream of a free Bulgaria.</p>
+    <p><strong>What the Player Does:</strong> You travel from village to village, quietly building a secret resistance. You take on tasks: deliver coded letters, hide weapons, protect leaders, or spread hope. You must earn people’s trust, avoid soldiers, and make hard choices, sometimes risking everything to help someone else.</p>
+    <p><strong>How It Feels:</strong> Serving feels serious and emotional. You’re not a superhero — you’re someone who’s giving everything for a bigger cause. Your actions feel important because they help others, not yourself.</p>
+    <p><strong>The Fantasy:</strong> You’re a symbol of hope. People may not know your name, but your actions matter. You’re not trying to be famous — you’re trying to change history.</p>
+    <p><strong>Consequences:</strong> As you serve, the revolution grows. Villages become safer. More people believe. But the more you do, the more enemies come after you. The more you serve, the more you risk.</p>
+  </div>
+</div>
+
+<div class="card" onclick="toggleCard(this)">
+  <h2>Part 3<br>Diegetic Survival Design</h2>
+  <div class="card-content">
+    <p><strong>Health:</strong> If the player is hurt, their body shows it:</p>
+    <ul>
+      <li>They limp if injured</li>
+      <li>Blood drips from wounds</li>
+      <li>The screen pulses with each heartbeat when health is low</li>
+      <li>You hear pain sounds or heavy breathing</li>
+      <li>If bleeding continues, it worsens over time</li>
+    </ul>
+    <p><strong>Environmental Danger:</strong> The world warns you using visual and audio cues:</p>
+    <ul>
+      <li>In cold: player shivers, visible breath</li>
+      <li>In heat: screen blur, player wipes sweat</li>
+      <li>In toxic areas: coughing, eye irritation, plants dying</li>
+      <li>Animals may act weird or go silent — danger is near</li>
+    </ul>
+    <p><strong>Inventory Fullness:</strong> As the backpack fills:</p>
+    <ul>
+      <li>It looks bulkier</li>
+      <li>Movement slows down, climbing gets harder</li>
+      <li>Gear clanks, and character might say “I’m carrying too much...”</li>
+      <li>They may even stumble or adjust balance when walking</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <h2 onclick="toggleCard(this.parentElement)">Part 4<br>Translating Emotion – Maze of Truth</h2>
+
+    <pre style="background:#111;padding:1rem;border-radius:10px;color:#ffd369;overflow-x:auto;line-height:1.5em;font-size:0.9rem;margin-bottom:1rem;">
++----------------------+
+|    Maze of Truth     |
++----------------------+
+        |     
+   [Talk to NPCs]  
+     /    |    \  
+[Honest][Mirror][Liar]
+     \    |    /
+   [Pick a Path] 
+     /       \
+[Correct]   [Wrong → Loop/Fail]
+     |             
+[Advance Maze]
+     |
+[Grow Intuition/Empathy]
+     |
+[Unlock Backstories]
+     |
+   [Final Escape]
+</pre>
+    <p><strong>System Name:</strong> Maze of Truth</p>
+    <p>This roguelike takes place in a shifting maze of multiple levels. Instead of fighting, you navigate by talking to NPCs who either lie or tell the truth. The goal is to find the true exit each time.</p>
+    <p><strong>System Description:</strong> Each run is randomly generated. NPCs appear and offer guidance or riddles. Types include:</p>
+    <ul>
+      <li>The Honest (always truthful)</li>
+      <li>The Trickster (always lies)</li>
+      <li>The Mirror (mimics your behavior)</li>
+      <li>The Confused (random or unclear answers)</li>
+    </ul>
+    <p><strong>Player Choices:</strong></p>
+    <ul>
+      <li>Talk to 1–3 NPCs per level</li>
+      <li>Pick a path based on judgment</li>
+      <li>Wrong paths loop you or trigger effects; right path advances</li>
+    </ul>
+    <p><strong>System Feedback:</strong></p>
+    <ul>
+      <li>Trust Report: tracks lies believed</li>
+      <li>Memory Fragments: reveal NPC backstories</li>
+      <li>Stats grow: Intuition, Empathy, etc.</li>
+    </ul>
+    <p><strong>Light Numeric Logic:</strong></p>
+    <ul>
+      <li>NPC Trust Level: –3 to +3</li>
+      <li>+1 Intuition per correct judgment (max +10)</li>
+      <li>At 5+ Intuition → 20% auto-detect lies</li>
+      <li>3 wrong paths = soft fail</li>
+      <li>5 interactions = unlock backstory via memory fragment</li>
+    </ul>
+    <p><strong>How It Feels:</strong> At first, it’s frustrating — you get tricked. But you learn. You spot patterns. Failure becomes growth. You’re not faster. You’re not stronger. You’re wiser. That’s what gets you through.</p>
+  </div>
+</div>
+  </div>
+  <footer>
+    &copy; 2025 Alan Akandzhi — All rights reserved.<br>
+    Designed for Ubisoft Game Design Test
+  </footer>
+
+  <script>
+    const canvas = document.getElementById("background");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let stars = [];
+    for (let i = 0; i < 100; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.5,
+        d: Math.random() * 2
+      });
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#ffd369";
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2, true);
+        ctx.fill();
+      });
+      moveStars();
+    }
+
+    function moveStars() {
+      stars.forEach(star => {
+        star.y += star.d;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
+        }
+      });
+    }
+
+    function animateStars() {
+      drawStars();
+      requestAnimationFrame(animateStars);
+    }
+    animateStars();
+
+    function toggleCard(card) {
+      card.classList.toggle("open");
+    }
+
+    // Typewriter animation
+    const typewriterText = "Ubisoft Game Design Test";
+    const typewriterTarget = document.getElementById("typewriter");
+    let i = 0;
+    function typeWriter() {
+      if (i < typewriterText.length) {
+        typewriterTarget.innerHTML += typewriterText.charAt(i);
+        i++;
+        setTimeout(typeWriter, 75);
+      }
+    }
+    typeWriter();
+  </script>
+</body>
+</html>
